@@ -23,7 +23,8 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         Vector3 direction = target.position - transform.position;
-        transform.Translate(direction.normalized * speed * Time.deltaTime);
+        transform.Translate(direction.normalized * speed * Time.deltaTime,
+            Space.World);
         if (direction != Vector3.zero)
         {
             Quaternion lookRotation = Quaternion.LookRotation(direction);

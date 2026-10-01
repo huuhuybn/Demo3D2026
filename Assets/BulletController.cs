@@ -30,6 +30,7 @@ public class BulletController : MonoBehaviour
 
     void HitTarget()
     {
+        
         Destroy(gameObject);
     }
 

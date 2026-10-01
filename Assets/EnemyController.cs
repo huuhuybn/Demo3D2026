@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -5,6 +6,7 @@ public class EnemyController : MonoBehaviour
     Transform[] points;
     private Transform target;
     private int pointIndex = 0;
+    public GameObject PopupDam;
 
     public float speed = 5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,6 +44,15 @@ public class EnemyController : MonoBehaviour
                return;
            }
            target = points[pointIndex];
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            Instantiate(PopupDam, 
+                transform.position, Quaternion.identity);
         }
     }
 }
